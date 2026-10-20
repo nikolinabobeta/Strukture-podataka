@@ -113,7 +113,7 @@ int UnosK(char* _ime, char* _prezime, int _godRod, Pozicija P) {
 		return -1;
 	}
 
-	while (P != NULL)
+	while (P->next != NULL)
 		P = P->next;
 
 	strcpy(Q->ime, _ime);
