@@ -39,7 +39,7 @@ int main() {
 		scanf("%19s %19s %d", Osoba[i].ime, Osoba[i].prezime, &Osoba[i].godRod);
 	}
 
-	for (i = 3;i > 0;i--)
+	for (i = 3;i >= 0;i--)
 		UnosP(Osoba[i].ime, Osoba[i].prezime, Osoba[i].godRod, &head);
 
 	Ispis(head.next);
@@ -86,7 +86,6 @@ int UnosP(char* _ime, char* _prezime, int _godRod, Pozicija P) {
 
 	InsertAfter(Q, P);
 
-	Q->next = NULL;
 	return 0;
 }
 
