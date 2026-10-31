@@ -1,0 +1,10 @@
+.vs/
+x64/
+Debug/
+*.exe
+*.pdb
+*.log
+*.ilk
+*.obj
+*.tlog
+*.user
