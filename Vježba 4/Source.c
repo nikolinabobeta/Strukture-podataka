@@ -15,27 +15,27 @@ int CitDat(Pozicija, Pozicija, polinom*);
 int InsertAfter(int, int, Pozicija);
 int SortUnos(int, int, Pozicija);
 int Ispis(Pozicija);
-int ZbrojiP(Pozicija, Pozicija, Pozicija);
-int MnoziP(Pozicija, Pozicija, Pozicija);
+int ZbrojiP(Pozicija,Pozicija,Pozicija);
+int MnoziP(Pozicija,Pozicija,Pozicija);
 
 int main() {
 
-	polinom head1 = { 0,0,NULL };
+	polinom head1 = { 0,0,NULL};
 	polinom head2 = { 0,0,NULL };
 	polinom head3 = { 0,0,NULL };
 	polinom head4 = { 0,0,NULL };
 	polinom polinomi[2];
 
-
+	
 	CitDat(&head1, &head2, polinomi);
 	Ispis(head1.next);
 	Ispis(head2.next);
 
-	ZbrojiP(&head1, &head2, &head3);
+	ZbrojiP(&head1, &head2,&head3);
 
 	Ispis(head3.next);
 
-	MnoziP(&head1, &head2, &head4);
+	MnoziP(&head1, &head2,&head4);
 
 	Ispis(head4.next);
 
@@ -43,7 +43,7 @@ int main() {
 	return 0;
 }
 
-int CitDat(Pozicija head1, Pozicija head2, polinom* poli) {
+int CitDat(Pozicija head1,Pozicija head2, polinom* poli) {
 	Pozicija P = NULL;
 	FILE* fp = NULL;
 	int i = 0;
@@ -75,7 +75,7 @@ int CitDat(Pozicija head1, Pozicija head2, polinom* poli) {
 
 int InsertAfter(int koef, int pot, Pozicija P) {
 
-	Pozicija q = NULL;
+	Pozicija q=NULL;
 	q = (Pozicija)malloc(sizeof(polinom));
 
 	if (q == NULL) {
@@ -94,7 +94,7 @@ int InsertAfter(int koef, int pot, Pozicija P) {
 
 int SortUnos(int koef, int pot, Pozicija P) {
 	Pozicija q = NULL;
-
+	
 	while (P->next != NULL && P->next->pot > pot)
 		P = P->next;
 
@@ -110,11 +110,11 @@ int SortUnos(int koef, int pot, Pozicija P) {
 		return -1;
 	}
 
-	q->koef = koef;
-	q->pot = pot;
+		q->koef = koef;
+		q->pot = pot;
 
-	q->next = P->next;
-	P->next = q;
+		q->next = P->next;
+		P->next = q; 
 
 	return 0;
 }
@@ -142,9 +142,9 @@ int ZbrojiP(Pozicija a, Pozicija b, Pozicija c) {
 			InsertAfter(a->next->koef, a->next->pot, c);
 			a = a->next;
 		}
-		else {
+		else{
 			InsertAfter(b->next->koef, b->next->pot, c);
-			b = a->next;
+			b = b->next;
 		}
 		c = c->next;
 	}
@@ -155,7 +155,7 @@ int ZbrojiP(Pozicija a, Pozicija b, Pozicija c) {
 	}
 	while (a->next != NULL) {
 		InsertAfter(b->next->koef, b->next->pot, c);
-		b = a->next;
+		b = b->next;
 		c = c->next;
 	}
 
