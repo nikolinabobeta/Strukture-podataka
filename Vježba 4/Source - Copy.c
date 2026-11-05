@@ -17,6 +17,7 @@ int SortUnos(int, int, Pozicija);
 int Ispis(Pozicija);
 int ZbrojiP(Pozicija,Pozicija,Pozicija);
 int MnoziP(Pozicija,Pozicija,Pozicija);
+int Oslobodi(Pozicija);
 
 int main() {
 
@@ -39,6 +40,10 @@ int main() {
 
 	Ispis(head4.next);
 
+	Oslobodi(&head1);
+	Oslobodi(&head2);
+	Oslobodi(&head3);
+	Oslobodi(&head4);
 
 	return 0;
 }
@@ -153,7 +158,7 @@ int ZbrojiP(Pozicija a, Pozicija b, Pozicija c) {
 		a = a->next;
 		c = c->next;
 	}
-	while (a->next != NULL) {
+	while (b->next != NULL) {
 		InsertAfter(b->next->koef, b->next->pot, c);
 		b = b->next;
 		c = c->next;
@@ -177,5 +182,16 @@ int MnoziP(Pozicija a, Pozicija b, Pozicija c) {
 		p = p->next;
 	}
 
+	return 0;
+}
+
+int Oslobodi(Pozicija head){
+Pozicija temp=NULL;
+	
+	while(head->next!=NULL){
+		temp=head->next;
+		head->next=temp->next;
+		free(temp);
+	}
 	return 0;
 }
